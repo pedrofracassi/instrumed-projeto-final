@@ -67,16 +67,10 @@ void loop() {
   delay(5000);
 
   pressao_bmp = bmp.readPressure();
-  imprimeLcd("Pressão:", String(humidade_dht));
+  imprimeLcd("Pressao:", String(humidade_dht));
   delay(5000);
 
   leitura_ldr = analogRead(PINO_LDR);
   imprimeLcd("Luminosidade:", String(humidade_dht));
   delay(5000);
-
-  //lcd.clear();
-  //lcd.setCursor(0, 0);
-  //lcd.print("Temperatura:");
-  //lcd.setCursor(0, 1);
-  //lcd.print(temperatura_lm35);
 }
