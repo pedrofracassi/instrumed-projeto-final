@@ -50,7 +50,7 @@ void imprimeLcd(String linha1, String linha2) {
 void setup() {
   analogReference(INTERNAL);
   Serial.begin(9600);
-	dht.begin();
+  dht.begin();
   bmp.begin(ADDR_BMP);
   lcd.init();
   lcd.setBacklight(HIGH);
