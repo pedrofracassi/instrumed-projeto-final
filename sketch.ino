@@ -30,12 +30,12 @@ float leitura_ldr;
 void setup() {
   analogReference(INTERNAL);
   Serial.begin(9600);
-	dht.begin();
+  dht.begin();
   bmp.begin(ADDR_BMP);
 }
 
 void loop() {
-	humidade_dht = calibracaoDHT(dht.readHumidity());
+  humidade_dht = calibracaoDHT(dht.readHumidity());
   pressao_bmp = bmp.readPressure();
   leitura_lm35 = analogRead(PINO_LM35);
   temperatura_lm35 = calibracaoLM35(leitura_lm35);
