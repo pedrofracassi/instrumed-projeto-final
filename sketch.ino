@@ -57,20 +57,44 @@ void setup() {
 }
 
 void loop() {
-  leitura_lm35 = analogRead(PINO_LM35);
-  temperatura_lm35 = calibracaoLM35(leitura_lm35);
-  imprimeLcd("Temperatura:", String(temperatura_lm35));
-  delay(5000);
+  int count = 0;
+  while (count < 5) {
+    leitura_lm35 = analogRead(PINO_LM35);
+    temperatura_lm35 = calibracaoLM35(leitura_lm35);
+    imprimeLcd("Temperatura:", String(temperatura_lm35));
+    delay(1000);
+    count = count + 1;
+  }
+  
+  count = 0;
+  while (count < 5) {
+	  humidade_dht = calibracaoDHT(dht.readHumidity());
+    imprimeLcd("Humidade:", String(humidade_dht));
+    delay(1000);
+    count = count + 1;
+  }
 
-	humidade_dht = calibracaoDHT(dht.readHumidity());
-  imprimeLcd("Humidade:", String(humidade_dht));
-  delay(5000);
+  count = 0;
+  while (count < 5) {
+    pressao_bmp = bmp.readPressure();
+    imprimeLcd("Pressao:", String(pressao_bmp/1000));
+    delay(1000);
+    count = count + 1;
+  }
 
-  pressao_bmp = bmp.readPressure();
-  imprimeLcd("Pressao:", String(humidade_dht));
-  delay(5000);
+  count = 0;
+  while (count < 5) {
+    pressao_bmp = bmp.readPressure();
+    imprimeLcd("Pressao:", String(pressao_bmp/1000));
+    delay(1000);
+    count = count + 1;
+  }
 
-  leitura_ldr = analogRead(PINO_LDR);
-  imprimeLcd("Luminosidade:", String(humidade_dht));
-  delay(5000);
+  count = 0;
+  while (count < 5) {
+    leitura_ldr = analogRead(PINO_LDR);
+    imprimeLcd("Luminosidade:", String(humidade_dht));
+    delay(1000);
+    count = count + 1;
+  }
 }
