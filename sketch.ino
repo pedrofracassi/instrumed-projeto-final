@@ -19,6 +19,7 @@ float calibracaoDHT (float leitura) {
 #define ADDR_BMP 0x76
 Adafruit_BMP280 bmp;
 float pressao_bmp;
+float altitude_bmp;
 
 // Configurações LM35
 
@@ -84,8 +85,8 @@ void loop() {
 
   count = 0;
   while (count < 5) {
-    pressao_bmp = bmp.readPressure();
-    imprimeLcd("Pressao:", String(pressao_bmp/1000));
+    altitude_bmp = bmp.readAltitude();
+    imprimeLcd("Altitude:", String(altitude_bmp/1000));
     delay(1000);
     count = count + 1;
   }
