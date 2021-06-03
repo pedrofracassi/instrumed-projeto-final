@@ -7,7 +7,7 @@
 #define PINO_DHT 2
 #define TIPO_DHT DHT22
 DHT dht(PINO_DHT, TIPO_DHT);
-float humidade_dht;
+float umidade_dht;
 float temperatura_dht;
 
 float calibracaoDHT (float leitura) {
@@ -68,8 +68,8 @@ void loop() {
   
   count = 0;
   while (count < 5) {
-	  humidade_dht = calibracaoDHT(dht.readHumidity());
-    imprimeLcd("Humidade:", String(humidade_dht));
+    umidade_dht = calibracaoDHT(dht.readHumidity());
+    imprimeLcd("Humidade:", String(umidade_dht));
     delay(1000);
     count = count + 1;
   }
@@ -93,7 +93,7 @@ void loop() {
   count = 0;
   while (count < 5) {
     leitura_ldr = analogRead(PINO_LDR);
-    imprimeLcd("Luminosidade:", String(humidade_dht));
+    imprimeLcd("Luminosidade:", String(umidade_dht));
     delay(1000);
     count = count + 1;
   }
