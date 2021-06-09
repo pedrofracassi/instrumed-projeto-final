@@ -122,7 +122,7 @@ void loop() {
   // Humidade do DHT22
   while (count < 5) {
     umidade_dht = calibracaoDHT(dht.readHumidity());
-    imprimeLcd("Humidade", String(umidade_dht) + "%");
+    imprimeLcd("Umidade", String(umidade_dht) + "%");
     delay(1000);
     count = count + 1;
   }
